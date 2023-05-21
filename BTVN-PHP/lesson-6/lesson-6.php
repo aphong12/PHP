@@ -22,10 +22,23 @@ class Calculator {
         echo " Sum of Array: " . array_sum($this-> numbers) . "<br>";
     }
     public function uniqeArray (){
-        echo " Uniqe of Array: " . implode(", ",array_unique($this -> numbers)) . "<br>";
+        //echo " Uniqe of Array: " . implode(", ",array_unique($this -> numbers)) . "<br>";
+        $temp = [];
+        $result = [];
+        foreach ($this -> numbers as $number) {
+            if(!isset($temp[$number])){
+            $temp[$number] =1;
+            array_push($result, $number);
+            }
+        }
+        return $result;
     }
     public function uniqeNumberArray (){
-        return array_count_values($this -> numbers);
+       // return array_count_values($this -> numbers);
+        $result = [];
+        foreach ($this->numbers as $number) {
+            $result[$number] = isset($result[$number]) ? $result[$number]+1:1;
+        }
     }
 }
 
@@ -46,7 +59,11 @@ $calc -> countArray();
 // Sum Array
 $calc -> sumArray();
 // Unique Array 
-$calc -> uniqeArray();
+
+echo "Unique Array: ". "<br>";
+foreach ($calc -> uniqeArray as $value => $count) {
+    echo $value;
+}
 
 $newArray = $calc -> uniqeNumberArray();
 echo "New Array: <br>";
