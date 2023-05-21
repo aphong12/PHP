@@ -24,7 +24,9 @@ class Calculator {
     public function uniqeArray (){
         echo " Uniqe of Array: " . implode(", ",array_unique($this -> numbers)) . "<br>";
     }
-    
+    public function uniqeNumberArray (){
+        return array_count_values($this -> numbers);
+    }
 }
 
 $calc = new Calculator;
@@ -45,3 +47,10 @@ $calc -> countArray();
 $calc -> sumArray();
 // Unique Array 
 $calc -> uniqeArray();
+
+$newArray = $calc -> uniqeNumberArray();
+echo "New Array: <br>";
+foreach($newArray as $value => $count){
+    echo $value . " : " . $count . " lần <br>";
+}
+
