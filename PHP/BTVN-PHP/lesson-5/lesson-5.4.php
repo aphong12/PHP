@@ -1,5 +1,5 @@
 <?php
-   $n = isset($_POST['so_n']) && !empty($_POST['so_n']) ? $_POST['so_n']: 0;    
+   $n = !empty($_POST['so_n']) ? $_POST['so_n']: 0;
     $str = '';
    for ($i = 1;$i< $n;$i++){
     $str .= $i .'-';

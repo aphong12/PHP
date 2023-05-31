@@ -1,6 +1,5 @@
 <?php
 class baiXe{
-    private $baiDoXe = [];
 
     public function addXe($thongTinXe,$baiDoXe){
     array_push($baiDoXe, $thongTinXe); 
