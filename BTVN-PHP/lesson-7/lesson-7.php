@@ -16,7 +16,7 @@ class CarThue{
     // add car
     public  function addCar($carNumber)
     {
-        $this -> carPresent = $carNumber;
+        $this -> carPresent[] = $carNumber;
     }
     // remove car
     public function removeCar($carNumber){
@@ -28,20 +28,20 @@ class CarThue{
     // add car rent 
     public function addCarRent($carNumber)
     {
-        if(!in_array($carNumber, $this -> carPresent)){
+        if(in_array($carNumber, $this->carPresent) &&!in_array($carNumber, $this -> carPresent)){
             $this -> carRent[] = $carNumber;
         }
     }
     // hien thi so luong xe dang thue
     public function displayCarPresent(){
         $count = count($this -> carPresent);
-        echo 'So luong xe da thue: ' . $count . "\n";
+        echo 'So luong xe da thue: ' . $count . "<br>";
     }
     // hien thi xe san sang cho thue
     public function displayCarRent(){
-        echo 'Xe da thue:\n';
+        echo 'Xe da thue:';
         foreach($this -> carRent as $carNumber){
-            echo $carNumber . "\n";
+            echo $carNumber . "<br>";
         }
     }
 
